@@ -107,5 +107,16 @@ func (d *demo) Render() vecty.ComponentOrHTML {
 				},
 			},
 		),
+		elem.Section(
+			elem.Heading2(
+				vecty.Text("AnchorButton"),
+			),
+			&components.AnchorButton{
+				Button: components.Button{
+					Color: components.PrimaryColor,
+					Child: vecty.Text("Link"),
+				},
+			},
+		),
 	)
 }

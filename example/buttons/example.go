@@ -109,12 +109,134 @@ func (d *demo) Render() vecty.ComponentOrHTML {
 		),
 		elem.Section(
 			elem.Heading2(
-				vecty.Text("AnchorButton"),
+				vecty.Text("Anchor Button"),
 			),
 			&components.AnchorButton{
 				Button: components.Button{
 					Color: components.PrimaryColor,
 					Child: vecty.Text("Link"),
+				},
+			},
+		),
+		elem.Section(
+			elem.Heading2(
+				vecty.Text("Outline Buttons"),
+			),
+			&components.Flex{
+				Children: vecty.List{
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						Color:     components.PrimaryColor,
+						IsOutline: true,
+						Child:     vecty.Text("Primary"),
+					},
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						Color:     components.SecondaryColor,
+						IsOutline: true,
+						Child:     vecty.Text("Secondary"),
+					},
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						Color:     components.SuccessColor,
+						IsOutline: true,
+						Child:     vecty.Text("Success"),
+					},
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						Color:     components.DangerColor,
+						IsOutline: true,
+						Child:     vecty.Text("Danger"),
+					},
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						Color:     components.WarningColor,
+						IsOutline: true,
+						Child:     vecty.Text("Warning"),
+					},
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						Color:     components.InfoColor,
+						IsOutline: true,
+						Child:     vecty.Text("Info"),
+					},
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						Color:     components.LightColor,
+						IsOutline: true,
+						Child:     vecty.Text("Light"),
+					},
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						Color:     components.DarkColor,
+						IsOutline: true,
+						Child:     vecty.Text("Dark"),
+					},
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						IsLink:    true,
+						IsOutline: true,
+						Child:     vecty.Text("Link"),
+					},
+				},
+			},
+		),
+		elem.Section(
+			elem.Heading2(
+				vecty.Text("Sizes"),
+			),
+			&components.Flex{
+				Children: vecty.List{
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						Color: components.PrimaryColor,
+						Size:  components.LargeSize,
+						Child: vecty.Text("Large Button"),
+					},
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						Color: components.SecondaryColor,
+						Size:  components.LargeSize,
+						Child: vecty.Text("Large Button"),
+					},
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						Color: components.PrimaryColor,
+						Size:  components.SmallSize,
+						Child: vecty.Text("Small Button"),
+					},
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						Color: components.SecondaryColor,
+						Size:  components.SmallSize,
+						Child: vecty.Text("Small Button"),
+					},
 				},
 			},
 		),

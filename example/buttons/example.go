@@ -240,5 +240,32 @@ func (d *demo) Render() vecty.ComponentOrHTML {
 				},
 			},
 		),
+		elem.Section(
+			elem.Heading2(
+				vecty.Text("Disabled State"),
+			),
+			&components.Flex{
+				Children: vecty.List{
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						Color:      components.PrimaryColor,
+						Size:       components.LargeSize,
+						IsDisabled: true,
+						Child:      vecty.Text("Primary Button"),
+					},
+					&components.Button{
+						Styles: []vecty.Style{
+							vecty.Margin(vecty.Px(8)),
+						},
+						Color:      components.SecondaryColor,
+						Size:       components.LargeSize,
+						IsDisabled: true,
+						Child:      vecty.Text("Button"),
+					},
+				},
+			},
+		),
 	)
 }

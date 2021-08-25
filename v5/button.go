@@ -37,13 +37,12 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 }
 
 func (b *Button) markup() vecty.MarkupList {
-	classes := []string{"btn"}
-	classes = append(classes, b.Classes...)
 	markup := []vecty.Applyer{
-		vecty.Class(classes...),
+		vecty.Class(vecty.AppendClasses([]string{"btn"}, b.Classes)...),
 		b.classMap(),
-		prop.Type(b.Type),
 		prop.Disabled(b.IsDisabled),
+		vecty.MarkupIf(b.Type != "", prop.Type(b.Type)),
+		vecty.MarkupIf(b.IsDisabled, vecty.Property("aria-disabled", true)),
 	}
 
 	for _, style := range b.Styles {
@@ -74,5 +73,6 @@ func (b *Button) classMap() vecty.ClassMap {
 		"btn-light":             !b.IsOutline && b.Color == LightColor,
 		"btn-dark":              !b.IsOutline && b.Color == DarkColor,
 		"btn-link":              b.IsLink,
+		"disabled":              b.IsDisabled,
 	}
 }

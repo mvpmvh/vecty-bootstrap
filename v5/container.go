@@ -5,6 +5,8 @@ import (
 
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
+
+	"github.com/mvpmvh/vecty-bootstrap/internal"
 )
 
 // ContainerBreakpoint is a breakpoint for responsive container sizes
@@ -22,33 +24,26 @@ const (
 // Container is a Bootstrap container (see: https://getbootstrap.com/docs/5.1/layout/containers/).
 type Container struct {
 	vecty.Core
-	Styles     []vecty.Style
-	Classes    []string
+	internal.StyleData
 	Breakpoint ContainerBreakpoint
 	Child      vecty.ComponentOrHTML
 }
 
 func (c *Container) Render() vecty.ComponentOrHTML {
 	return elem.Div(
-		c.markup(),
-		vecty.If(c.Child != nil, c.Child),
+		vecty.Markup(
+			c.StyleData.Markup(),
+			vecty.Class(c.class()),
+		),
+		c.Child,
 	)
 }
 
-func (c *Container) markup() vecty.MarkupList {
+func (c *Container) class() string {
 	class := "container"
 	if c.Breakpoint != "" {
 		class = fmt.Sprintf("container-%s", c.Breakpoint)
 	}
 
-	classes := vecty.AppendClasses([]string{class}, c.Classes)
-	markup := []vecty.Applyer{
-		vecty.Class(classes...),
-	}
-
-	for _, style := range c.Styles {
-		markup = append(markup, style)
-	}
-
-	return vecty.Markup(markup...)
+	return class
 }

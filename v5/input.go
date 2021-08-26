@@ -49,7 +49,7 @@ func (i *Input) Render() vecty.ComponentOrHTML {
 		),
 		vecty.If(i.Placeholder != "", elem.Label(
 			vecty.Markup(
-				vecty.Class("form-lagel"),
+				vecty.Class("form-label"),
 				vecty.MarkupIf(i.Id != "", prop.For(i.Id)),
 			),
 			vecty.Text(i.Placeholder),

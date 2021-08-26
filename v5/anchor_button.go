@@ -12,9 +12,11 @@ type AnchorButton struct {
 }
 
 func (a *AnchorButton) Render() vecty.ComponentOrHTML {
-	markup := []vecty.Applyer{prop.Href("#")}
 	return elem.Anchor(
-		vecty.AppendMarkupList(a.markup(), vecty.Markup(markup...)),
+		vecty.Markup(
+			prop.Href("#"),
+			a.StyleData.Markup(),
+		),
 		a.Child,
 	)
 }

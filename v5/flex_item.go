@@ -5,6 +5,8 @@ import (
 
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
+
+	"github.com/mvpmvh/vecty-bootstrap/internal"
 )
 
 type AlignSelfDirection string
@@ -19,9 +21,10 @@ const (
 
 type FlexItem struct {
 	vecty.Core
+	internal.StyleData
 	FlexItemSettings
 	FlexItemBreakPointSettings []FlexItemBreakpointSettings
-	Children                   vecty.List
+	Child                      vecty.ComponentOrHTML
 }
 
 type FlexItemSettings struct {
@@ -40,8 +43,9 @@ func (f *FlexItem) Render() vecty.ComponentOrHTML {
 	return elem.Div(
 		vecty.Markup(
 			vecty.Class(f.classes()...),
+			f.StyleData.Markup(),
 		),
-		f.Children,
+		f.Child,
 	)
 }
 

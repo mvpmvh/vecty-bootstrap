@@ -5,8 +5,11 @@ import (
 
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
+
+	"github.com/mvpmvh/vecty-bootstrap/internal"
 )
 
+// SpacingType is either margin or padding
 type SpacingType string
 
 const (
@@ -14,6 +17,7 @@ const (
 	SpacingPadding SpacingType = "p"
 )
 
+// SpacingSide is the location where the margin or padding will be applied
 type SpacingSide string
 
 const (
@@ -25,6 +29,7 @@ const (
 	SideTopBottom SpacingSide = "y"
 )
 
+// SpacingSize are the sizes margin or padding can be
 type SpacingSize string
 
 const (
@@ -37,22 +42,24 @@ const (
 	SizeAuto  SpacingSize = "auto"
 )
 
+// Spacing provides a container with either margin or padding settings
 type Spacing struct {
 	vecty.Core
-
+	internal.StyleData
 	SpacingType SpacingType
 	SpacingSide SpacingSide
 	SpacingSize SpacingSize
 	Breakpoint  Breakpoint
-	Children    vecty.List
+	Child       vecty.ComponentOrHTML
 }
 
 func (s *Spacing) Render() vecty.ComponentOrHTML {
 	return elem.Div(
 		vecty.Markup(
 			vecty.Class(s.class()),
+			s.StyleData.Markup(),
 		),
-		s.Children,
+		s.Child,
 	)
 }
 

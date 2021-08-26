@@ -5,6 +5,8 @@ import (
 
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
+
+	"github.com/mvpmvh/vecty-bootstrap/internal"
 )
 
 type FlexOrder string
@@ -77,8 +79,7 @@ type FlexSettings struct {
 
 type Flex struct {
 	vecty.Core
-	Styles  []vecty.Style
-	Classes []string
+	internal.StyleData
 	FlexSettings
 	FlexBreakpointSettings []FlexBreakpointSettings
 	Children               vecty.List
@@ -86,21 +87,12 @@ type Flex struct {
 
 func (f *Flex) Render() vecty.ComponentOrHTML {
 	return elem.Div(
-		f.markup(),
+		vecty.Markup(
+			vecty.Class(f.classes()...),
+			f.StyleData.Markup(),
+		),
 		f.Children,
 	)
-}
-
-func (f *Flex) markup() vecty.MarkupList {
-	markup := []vecty.Applyer{
-		vecty.Class(f.classes()...),
-	}
-
-	for _, style := range f.Styles {
-		markup = append(markup, style)
-	}
-
-	return vecty.Markup(markup...)
 }
 
 func (f *Flex) classes() []string {

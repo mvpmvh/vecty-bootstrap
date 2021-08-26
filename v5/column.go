@@ -5,6 +5,8 @@ import (
 
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
+
+	"github.com/mvpmvh/vecty-bootstrap/internal"
 )
 
 // ColumnBreakpoint is a responsive breakpoint for a Column
@@ -29,20 +31,22 @@ type ColumnBreakpointSize struct {
 // Column is a Bootstrap Column (see: https://getbootstrap.com/docs/5.1/layout/grid/#how-it-works)
 type Column struct {
 	vecty.Core
-	Styles      []vecty.Style
-	Classes     []string
+	internal.StyleData
 	Breakpoints []ColumnBreakpointSize
 	Child       vecty.ComponentOrHTML
 }
 
 func (c *Column) Render() vecty.ComponentOrHTML {
 	return elem.Div(
-		c.markup(),
+		vecty.Markup(
+			vecty.Class(c.classes()...),
+			c.StyleData.Markup(),
+		),
 		c.Child,
 	)
 }
 
-func (c *Column) markup() vecty.MarkupList {
+func (c *Column) classes() []string {
 	var classes []string
 	for _, b := range c.Breakpoints {
 		class := "col"
@@ -59,13 +63,5 @@ func (c *Column) markup() vecty.MarkupList {
 		classes = []string{"col"}
 	}
 
-	markup := []vecty.Applyer{
-		vecty.Class(vecty.AppendClasses(classes, c.Classes)...),
-	}
-
-	for _, style := range c.Styles {
-		markup = append(markup, style)
-	}
-
-	return vecty.Markup(markup...)
+	return classes
 }

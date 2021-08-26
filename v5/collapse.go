@@ -10,7 +10,7 @@ import (
 // Collapse provides collapsible content (see: https://getbootstrap.com/docs/5.1/components/collapse/)
 type Collapse struct {
 	vecty.Core
-	internal.StyleData
+	internal.MarkupData
 	IsShowing    bool
 	IsHorizontal bool
 	Child        vecty.ComponentOrHTML
@@ -20,7 +20,7 @@ func (c *Collapse) Render() vecty.ComponentOrHTML {
 	return elem.Div(
 		vecty.Markup(
 			vecty.Class("collapse"),
-			c.StyleData.Markup(),
+			c.MarkupData.Markup(),
 			vecty.ClassMap{
 				"show":                c.IsShowing,
 				"collapse-horizontal": c.IsHorizontal,

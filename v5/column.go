@@ -31,7 +31,7 @@ type ColumnBreakpointSize struct {
 // Column is a Bootstrap Column (see: https://getbootstrap.com/docs/5.1/layout/grid/#how-it-works)
 type Column struct {
 	vecty.Core
-	internal.StyleData
+	internal.MarkupData
 	Breakpoints []ColumnBreakpointSize
 	Child       vecty.ComponentOrHTML
 }
@@ -40,7 +40,7 @@ func (c *Column) Render() vecty.ComponentOrHTML {
 	return elem.Div(
 		vecty.Markup(
 			vecty.Class(c.classes()...),
-			c.StyleData.Markup(),
+			c.MarkupData.Markup(),
 		),
 		c.Child,
 	)

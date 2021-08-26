@@ -24,7 +24,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 			&components.Flex{
 				Children: vecty.List{
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -33,7 +33,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child: vecty.Text("Primary"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -42,7 +42,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child: vecty.Text("Secondary"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -51,7 +51,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child: vecty.Text("Success"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -60,7 +60,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child: vecty.Text("Danger"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -69,7 +69,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child: vecty.Text("Warning"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -78,7 +78,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child: vecty.Text("Info"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -87,7 +87,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child: vecty.Text("Light"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -96,7 +96,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child: vecty.Text("Dark"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -125,7 +125,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 			&components.Flex{
 				Children: vecty.List{
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -135,7 +135,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child:     vecty.Text("Primary"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -145,7 +145,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child:     vecty.Text("Secondary"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -155,7 +155,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child:     vecty.Text("Success"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -165,7 +165,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child:     vecty.Text("Danger"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -175,7 +175,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child:     vecty.Text("Warning"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -185,7 +185,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child:     vecty.Text("Info"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -195,7 +195,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child:     vecty.Text("Light"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -205,7 +205,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child:     vecty.Text("Dark"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -224,7 +224,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 			&components.Flex{
 				Children: vecty.List{
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -234,7 +234,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child: vecty.Text("Large Button"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -244,7 +244,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child: vecty.Text("Large Button"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -254,7 +254,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child: vecty.Text("Small Button"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -273,7 +273,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 			&components.Flex{
 				Children: vecty.List{
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -284,7 +284,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Child:      vecty.Text("Primary Button"),
 					},
 					&components.Button{
-						StyleData: internal.StyleData{
+						MarkupData: internal.MarkupData{
 							Styles: []vecty.Style{
 								vecty.Margin(vecty.Px(8)),
 							},
@@ -296,7 +296,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 					},
 					&components.AnchorButton{
 						Button: components.Button{
-							StyleData: internal.StyleData{
+							MarkupData: internal.MarkupData{
 								Styles: []vecty.Style{
 									vecty.Margin(vecty.Px(8)),
 								},
@@ -308,7 +308,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 					},
 					&components.AnchorButton{
 						Button: components.Button{
-							StyleData: internal.StyleData{
+							MarkupData: internal.MarkupData{
 								Styles: []vecty.Style{
 									vecty.Margin(vecty.Px(8)),
 								},

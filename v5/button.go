@@ -3,23 +3,9 @@ package components
 import (
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
-	"github.com/hexops/vecty/prop"
 
 	"github.com/mvpmvh/vecty-bootstrap/internal"
 )
-
-// Button creates a button (see: https://getbootstrap.com/docs/5.1/components/buttons/)
-type Button struct {
-	vecty.Core
-	internal.StyleData
-	Type       prop.InputType
-	Color      Color
-	Size       ButtonSize
-	IsDisabled bool
-	IsOutline  bool
-	IsLink     bool
-	Child      vecty.ComponentOrHTML
-}
 
 // ButtonSize controls the size of the button (see: https://getbootstrap.com/docs/5.1/components/buttons/#sizes)
 type ButtonSize int
@@ -30,17 +16,36 @@ const (
 	LargeSize
 )
 
+// Button creates a button (see: https://getbootstrap.com/docs/5.1/components/buttons/)
+type Button struct {
+	vecty.Core
+	internal.MarkupData
+	Type       vecty.InputType
+	Color      Color
+	Size       ButtonSize
+	IsDisabled bool
+	IsOutline  bool
+	IsLink     bool
+	Child      vecty.ComponentOrHTML
+}
+
 func (b *Button) Render() vecty.ComponentOrHTML {
 	return elem.Button(
 		vecty.Markup(
-			vecty.Class("btn"),
-			b.classMap(),
-			prop.Disabled(b.IsDisabled),
-			vecty.MarkupIf(b.Type != "", prop.Type(b.Type)),
-			vecty.MarkupIf(b.IsDisabled, vecty.Property("aria-disabled", true)),
-			b.StyleData.Markup(),
+			b.markup(),
 		),
 		b.Child,
+	)
+}
+
+func (b *Button) markup() vecty.MarkupList {
+	return vecty.Markup(
+		vecty.Class("btn"),
+		b.classMap(),
+		vecty.Disabled(b.IsDisabled),
+		vecty.MarkupIf(b.Type != "", vecty.Type(b.Type)),
+		vecty.MarkupIf(b.IsDisabled, vecty.Property{"aria-disabled": true}),
+		b.MarkupData.Markup(),
 	)
 }
 

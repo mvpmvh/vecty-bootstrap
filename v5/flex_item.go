@@ -21,7 +21,7 @@ const (
 
 type FlexItem struct {
 	vecty.Core
-	internal.StyleData
+	internal.MarkupData
 	FlexItemSettings
 	FlexItemBreakPointSettings []FlexItemBreakpointSettings
 	Child                      vecty.ComponentOrHTML
@@ -43,7 +43,7 @@ func (f *FlexItem) Render() vecty.ComponentOrHTML {
 	return elem.Div(
 		vecty.Markup(
 			vecty.Class(f.classes()...),
-			f.StyleData.Markup(),
+			f.MarkupData.Markup(),
 		),
 		f.Child,
 	)

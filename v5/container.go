@@ -24,7 +24,7 @@ const (
 // Container is a Bootstrap container (see: https://getbootstrap.com/docs/5.1/layout/containers/).
 type Container struct {
 	vecty.Core
-	internal.StyleData
+	internal.MarkupData
 	Breakpoint ContainerBreakpoint
 	Child      vecty.ComponentOrHTML
 }
@@ -32,7 +32,7 @@ type Container struct {
 func (c *Container) Render() vecty.ComponentOrHTML {
 	return elem.Div(
 		vecty.Markup(
-			c.StyleData.Markup(),
+			c.MarkupData.Markup(),
 			vecty.Class(c.class()),
 		),
 		c.Child,

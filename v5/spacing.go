@@ -45,7 +45,7 @@ const (
 // Spacing provides a container with either margin or padding settings
 type Spacing struct {
 	vecty.Core
-	internal.StyleData
+	internal.MarkupData
 	SpacingType SpacingType
 	SpacingSide SpacingSide
 	SpacingSize SpacingSize
@@ -57,7 +57,7 @@ func (s *Spacing) Render() vecty.ComponentOrHTML {
 	return elem.Div(
 		vecty.Markup(
 			vecty.Class(s.class()),
-			s.StyleData.Markup(),
+			s.MarkupData.Markup(),
 		),
 		s.Child,
 	)

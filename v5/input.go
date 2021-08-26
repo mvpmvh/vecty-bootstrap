@@ -3,7 +3,6 @@ package components
 import (
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
-	"github.com/hexops/vecty/prop"
 )
 
 type Input struct {
@@ -11,7 +10,7 @@ type Input struct {
 	Name        string
 	IsFloating  bool
 	Placeholder string
-	InputType   prop.InputType
+	InputType   vecty.InputType
 	Id          string
 	Value       string
 	IsInvalid   bool
@@ -39,18 +38,18 @@ func (i *Input) Render() vecty.ComponentOrHTML {
 				vecty.ClassMap{
 					"is-invalid": i.IsInvalid,
 				},
-				prop.Type(i.InputType),
-				vecty.MarkupIf(i.Id != "", prop.ID(i.Id)),
-				vecty.MarkupIf(i.Name != "", prop.Name(i.Name)),
-				vecty.MarkupIf(i.IsReadOnly, vecty.Property("readOnly", true)),
-				vecty.MarkupIf(i.Placeholder != "", prop.Placeholder(i.Placeholder)),
-				prop.Value(i.Value),
+				vecty.Type(i.InputType),
+				vecty.MarkupIf(i.Id != "", vecty.ID(i.Id)),
+				vecty.MarkupIf(i.Name != "", vecty.Name(i.Name)),
+				vecty.MarkupIf(i.IsReadOnly, vecty.Property{"readOnly": true}),
+				vecty.MarkupIf(i.Placeholder != "", vecty.Placeholder(i.Placeholder)),
+				vecty.Value(i.Value),
 			),
 		),
 		vecty.If(i.Placeholder != "", elem.Label(
 			vecty.Markup(
 				vecty.Class("form-label"),
-				vecty.MarkupIf(i.Id != "", prop.For(i.Id)),
+				vecty.MarkupIf(i.Id != "", vecty.For(i.Id)),
 			),
 			vecty.Text(i.Placeholder),
 		)),

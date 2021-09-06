@@ -18,8 +18,8 @@ func (c *CollapseButton) Render() vecty.ComponentOrHTML {
 	data := append(
 		[]vecty.Data{
 			{
-				"bs-toggle": "collapse",
-				"bs-target": c.Target,
+				"bsToggle": "collapse",
+				"bsTarget": c.Target,
 			},
 		},
 		c.Button.MarkupData.Data...,

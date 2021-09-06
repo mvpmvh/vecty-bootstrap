@@ -11,14 +11,20 @@ import (
 type Collapse struct {
 	vecty.Core
 	internal.MarkupData
+	ID           string
 	IsShowing    bool
 	IsHorizontal bool
 	Child        vecty.ComponentOrHTML
 }
 
 func (c *Collapse) Render() vecty.ComponentOrHTML {
+	if c.ID == "" {
+		panic("no id set.")
+	}
+
 	return elem.Div(
 		vecty.Markup(
+			vecty.ID(c.ID),
 			vecty.Class("collapse"),
 			c.MarkupData.Markup(),
 			vecty.ClassMap{

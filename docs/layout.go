@@ -6,6 +6,7 @@ import (
 
 	"github.com/mvpmvh/vecty-bootstrap/internal"
 	components "github.com/mvpmvh/vecty-bootstrap/v5"
+	"github.com/mvpmvh/vecty-bootstrap/v5/utilities"
 )
 
 type Layout struct {
@@ -97,6 +98,18 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 						DismissButton:        &components.Button{},
 						ShouldAnimateDismiss: true,
 						Child:                vecty.Text("A simple primary alert—check it out!"),
+					},
+					&components.Badge{
+						MarkupData: internal.MarkupData{
+							Classes: []string{utilities.BackgroundPrimary},
+						},
+						Child: vecty.Text("badge"),
+					},
+					&components.Badge{
+						Child: vecty.Text("pill"),
+						MarkupData: internal.MarkupData{
+							Classes: []string{utilities.BackgroundSecondary, utilities.BorderRadiusRoundedPill},
+						},
 					},
 				),
 			),

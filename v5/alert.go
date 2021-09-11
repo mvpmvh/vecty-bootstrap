@@ -28,22 +28,20 @@ type Alert struct {
 	vecty.Core
 	internal.MarkupData
 	Type                 AlertType
-	DismissButton        *Button
+	CloseButton          *CloseButton
 	ShouldAnimateDismiss bool
 	Child                vecty.ComponentOrHTML
 }
 
 func (a *Alert) Render() vecty.ComponentOrHTML {
-	if a.DismissButton != nil {
-		a.DismissButton.Classes = append(a.DismissButton.Classes, "btn-close")
-		a.DismissButton.Data = append(a.DismissButton.Data, vecty.Data{"bsDismiss": "alert"})
-		a.DismissButton.Properties = append(a.DismissButton.Properties, vecty.Property{"aria-label": "close"})
+	if a.CloseButton != nil {
+		a.CloseButton.Data = append(a.CloseButton.Data, vecty.Data{"bsDismiss": "alert"})
 	}
 
 	return elem.Div(
 		vecty.Markup(a.markup()),
 		a.Child,
-		vecty.If(a.DismissButton != nil, a.DismissButton),
+		vecty.If(a.CloseButton != nil, a.CloseButton),
 	)
 }
 
@@ -52,7 +50,7 @@ func (a *Alert) markup() vecty.MarkupList {
 		a.MarkupData.Markup(),
 		vecty.Class("alert", fmt.Sprintf("alert-%s", a.Type)),
 		vecty.ClassMap{
-			"alert-dismissible": a.DismissButton != nil,
+			"alert-dismissible": a.CloseButton != nil,
 			"fade":              a.ShouldAnimateDismiss,
 			"show":              a.ShouldAnimateDismiss,
 		},

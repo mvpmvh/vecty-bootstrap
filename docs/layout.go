@@ -92,25 +92,51 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 				),
 				elem.Section(
 					vecty.Text("Main"),
-					&components.Alert{
-						MarkupData:           internal.MarkupData{},
-						Type:                 components.PrimaryAlert,
-						DismissButton:        &components.Button{},
-						ShouldAnimateDismiss: true,
-						Child:                vecty.Text("A simple primary alert—check it out!"),
-					},
-					&components.Badge{
-						MarkupData: internal.MarkupData{
-							Classes: []string{utilities.BackgroundPrimary},
+					elem.Section(
+						&components.Alert{
+							MarkupData:           internal.MarkupData{},
+							Type:                 components.PrimaryAlert,
+							DismissButton:        &components.Button{},
+							ShouldAnimateDismiss: true,
+							Child:                vecty.Text("A simple primary alert—check it out!"),
 						},
-						Child: vecty.Text("badge"),
-					},
-					&components.Badge{
-						Child: vecty.Text("pill"),
-						MarkupData: internal.MarkupData{
-							Classes: []string{utilities.BackgroundSecondary, utilities.BorderRadiusRoundedPill},
+					),
+					elem.Section(
+						&components.Badge{
+							MarkupData: internal.MarkupData{
+								Classes: []string{utilities.BackgroundPrimary},
+							},
+							Child: vecty.Text("badge"),
 						},
-					},
+						&components.Badge{
+							Child: vecty.Text("pill"),
+							MarkupData: internal.MarkupData{
+								Classes: []string{utilities.BackgroundSecondary, utilities.BorderRadiusRoundedPill},
+							},
+						},
+					),
+					elem.Section(
+						&components.Breadcrumbs{
+							Items: []*components.BreadcrumbItem{
+								{
+									Child: elem.Anchor(
+										vecty.Markup(vecty.Href("#")),
+										vecty.Text("Home"),
+									),
+								},
+								{
+									Child: elem.Anchor(
+										vecty.Markup(vecty.Href("#")),
+										vecty.Text("Library"),
+									),
+								},
+								{
+									Child:    vecty.Text("Data"),
+									IsActive: true,
+								},
+							},
+						},
+					),
 				),
 			),
 		),

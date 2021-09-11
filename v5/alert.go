@@ -49,6 +49,7 @@ func (a *Alert) Render() vecty.ComponentOrHTML {
 
 func (a *Alert) markup() vecty.MarkupList {
 	return vecty.Markup(
+		a.MarkupData.Markup(),
 		vecty.Class("alert", fmt.Sprintf("alert-%s", a.Type)),
 		vecty.ClassMap{
 			"alert-dismissible": a.DismissButton != nil,
@@ -56,6 +57,5 @@ func (a *Alert) markup() vecty.MarkupList {
 			"show":              a.ShouldAnimateDismiss,
 		},
 		vecty.Attribute("role", "alert"),
-		a.MarkupData.Markup(),
 	)
 }

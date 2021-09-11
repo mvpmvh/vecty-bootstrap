@@ -39,8 +39,8 @@ type Column struct {
 func (c *Column) Render() vecty.ComponentOrHTML {
 	return elem.Div(
 		vecty.Markup(
-			vecty.Class(c.classes()...),
 			c.MarkupData.Markup(),
+			vecty.Class(c.classes()...),
 		),
 		c.Child,
 	)

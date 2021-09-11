@@ -17,8 +17,8 @@ type Badge struct {
 func (b *Badge) Render() vecty.ComponentOrHTML {
 	return elem.Span(
 		vecty.Markup(
-			vecty.Class("badge"),
 			b.MarkupData.Markup(),
+			vecty.Class("badge"),
 		),
 		b.Child,
 	)

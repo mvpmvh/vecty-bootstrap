@@ -3,10 +3,13 @@ package components
 import (
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
+
+	"github.com/mvpmvh/vecty-bootstrap/internal"
 )
 
 type Input struct {
 	vecty.Core
+	internal.MarkupData
 	Name        string
 	IsFloating  bool
 	Placeholder string
@@ -27,6 +30,7 @@ type Input struct {
 func (i *Input) Render() vecty.ComponentOrHTML {
 	return elem.Div(
 		vecty.Markup(
+			i.MarkupData.Markup(),
 			vecty.Class(i.ContainerClasses...),
 			vecty.ClassMap{
 				"form-floating": i.IsFloating,

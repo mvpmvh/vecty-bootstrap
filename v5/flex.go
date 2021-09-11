@@ -88,8 +88,8 @@ type Flex struct {
 func (f *Flex) Render() vecty.ComponentOrHTML {
 	return elem.Div(
 		vecty.Markup(
-			vecty.Class(f.classes()...),
 			f.MarkupData.Markup(),
+			vecty.Class(f.classes()...),
 		),
 		f.Children,
 	)

@@ -31,6 +31,7 @@ func (a *Accordion) Render() vecty.ComponentOrHTML {
 
 	children := []vecty.MarkupOrChild{
 		vecty.Markup(
+			a.MarkupData.Markup(),
 			vecty.MarkupIf(a.ID != "", vecty.ID(a.ID)),
 			vecty.Class("accordion"),
 			vecty.ClassMap{
@@ -65,8 +66,8 @@ func (a *AccordionItem) Render() vecty.ComponentOrHTML {
 
 	return elem.Div(
 		vecty.Markup(
-			vecty.Class("accordion-item"),
 			a.MarkupData.Markup(),
+			vecty.Class("accordion-item"),
 		),
 		a.Trigger,
 		a.Content,

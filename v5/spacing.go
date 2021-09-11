@@ -56,8 +56,8 @@ type Spacing struct {
 func (s *Spacing) Render() vecty.ComponentOrHTML {
 	return elem.Div(
 		vecty.Markup(
-			vecty.Class(s.class()),
 			s.MarkupData.Markup(),
+			vecty.Class(s.class()),
 		),
 		s.Child,
 	)

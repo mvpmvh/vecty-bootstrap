@@ -24,9 +24,9 @@ func (c *Collapse) Render() vecty.ComponentOrHTML {
 
 	return elem.Div(
 		vecty.Markup(
+			c.MarkupData.Markup(),
 			vecty.ID(c.ID),
 			vecty.Class("collapse"),
-			c.MarkupData.Markup(),
 			vecty.ClassMap{
 				"show":                c.IsShowing,
 				"collapse-horizontal": c.IsHorizontal,

@@ -31,6 +31,7 @@ func (b *Breadcrumbs) Render() vecty.ComponentOrHTML {
 
 	return elem.Navigation(
 		vecty.Markup(
+			b.MarkupData.Markup(),
 			vecty.Property{"aria-label": "breadcrumb"},
 			vecty.MarkupIf(b.Divider != nil, vecty.Style{"--bs-breadcrumb-divider": divider}),
 		),
@@ -49,6 +50,7 @@ type BreadcrumbItem struct {
 func (b *BreadcrumbItem) Render() vecty.ComponentOrHTML {
 	return elem.ListItem(
 		vecty.Markup(
+			b.MarkupData.Markup(),
 			vecty.Class("breadcrumb-item"),
 			vecty.ClassMap{"active": b.IsActive},
 			vecty.MarkupIf(b.IsActive, vecty.Property{"aria-current": "page"}),

@@ -42,8 +42,8 @@ type FlexItemBreakpointSettings struct {
 func (f *FlexItem) Render() vecty.ComponentOrHTML {
 	return elem.Div(
 		vecty.Markup(
-			vecty.Class(f.classes()...),
 			f.MarkupData.Markup(),
+			vecty.Class(f.classes()...),
 		),
 		f.Child,
 	)

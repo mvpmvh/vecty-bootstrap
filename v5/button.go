@@ -40,12 +40,12 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 
 func (b *Button) markup() vecty.MarkupList {
 	return vecty.Markup(
+		b.MarkupData.Markup(),
 		vecty.Class("btn"),
 		b.classMap(),
 		vecty.Disabled(b.IsDisabled),
 		vecty.MarkupIf(b.Type != "", vecty.Type(b.Type)),
 		vecty.MarkupIf(b.IsDisabled, vecty.Property{"aria-disabled": true}),
-		b.MarkupData.Markup(),
 	)
 }
 

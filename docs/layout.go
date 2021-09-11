@@ -4,6 +4,7 @@ import (
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
 
+	"github.com/mvpmvh/vecty-bootstrap/internal"
 	components "github.com/mvpmvh/vecty-bootstrap/v5"
 )
 
@@ -90,6 +91,13 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 				),
 				elem.Section(
 					vecty.Text("Main"),
+					&components.Alert{
+						MarkupData:           internal.MarkupData{},
+						Type:                 components.PrimaryAlert,
+						DismissButton:        &components.Button{},
+						ShouldAnimateDismiss: true,
+						Child:                vecty.Text("A simple primary alert—check it out!"),
+					},
 				),
 			),
 		),

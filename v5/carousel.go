@@ -14,6 +14,7 @@ type Carousel struct {
 	vecty.Core
 	internal.MarkupData
 	ID              string
+	IgnoreKeyboard  bool
 	ShouldCrossFade bool
 	ShowControls    bool
 	ShowIndicators  bool
@@ -79,16 +80,6 @@ func (c *Carousel) Render() vecty.ComponentOrHTML {
 		ride = "carousel"
 	}
 
-	wrap := "true"
-	if c.NoWrap {
-		wrap = "false"
-	}
-
-	touch := "true"
-	if c.DisableTouch {
-		touch = "false"
-	}
-
 	return elem.Div(
 		vecty.Markup(
 			c.MarkupData.Markup(),
@@ -102,8 +93,9 @@ func (c *Carousel) Render() vecty.ComponentOrHTML {
 				"bsRide":     ride,
 				"bsPause":    pause,
 				"bsInterval": interval,
-				"bsWrap":     wrap,
-				"bsTouch":    touch,
+				"bsWrap":     fmt.Sprintf("%t", !c.NoWrap),
+				"bsTouch":    fmt.Sprintf("%t", !c.DisableTouch),
+				"keyboard":   fmt.Sprintf("%t", !c.IgnoreKeyboard),
 			},
 		),
 		vecty.If(

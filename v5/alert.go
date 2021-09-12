@@ -35,7 +35,11 @@ type Alert struct {
 
 func (a *Alert) Render() vecty.ComponentOrHTML {
 	if a.CloseButton != nil {
-		a.CloseButton.Data = append(a.CloseButton.Data, vecty.Data{"bsDismiss": "alert"})
+		data := vecty.Data{"bsDismiss": "alert"}
+		for k, v := range a.CloseButton.Data {
+			data[k] = v
+		}
+		a.CloseButton.Data = data
 	}
 
 	return elem.Div(

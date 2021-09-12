@@ -15,15 +15,14 @@ type CollapseButton struct {
 }
 
 func (c *CollapseButton) Render() vecty.ComponentOrHTML {
-	data := append(
-		[]vecty.Data{
-			{
-				"bsToggle": "collapse",
-				"bsTarget": c.Target,
-			},
-		},
-		c.Button.MarkupData.Data...,
-	)
+	data := vecty.Data{
+		"bsToggle": "collapse",
+		"bsTarget": c.Target,
+	}
+
+	for k, v := range c.Button.MarkupData.Data {
+		data[k] = v
+	}
 
 	b := Button{
 		MarkupData: internal.MarkupData{

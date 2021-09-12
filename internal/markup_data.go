@@ -5,16 +5,18 @@ import "github.com/hexops/vecty"
 // MarkupData encapsulates the styles, classes, and attributes for any component. It should be embedded in every component for the
 // component to have a common way to
 type MarkupData struct {
-	Styles     []vecty.Style
-	Classes    []string
-	Data       []vecty.Data
-	Properties []vecty.Property
+	Styles         []vecty.Style
+	Classes        []string
+	Data           vecty.Data
+	Properties     []vecty.Property
+	EventListeners []*vecty.EventListener
 }
 
 // Markup computes the styles and css markup for a component
 func (s MarkupData) Markup() vecty.MarkupList {
 	markup := []vecty.Applyer{
 		vecty.Class(s.Classes...),
+		s.Data,
 	}
 
 	for _, style := range s.Styles {
@@ -25,8 +27,8 @@ func (s MarkupData) Markup() vecty.MarkupList {
 		markup = append(markup, prop)
 	}
 
-	for _, data := range s.Data {
-		markup = append(markup, data)
+	for _, el := range s.EventListeners {
+		markup = append(markup, el)
 	}
 
 	return vecty.Markup(markup...)

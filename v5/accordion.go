@@ -61,7 +61,11 @@ func (a *AccordionItem) Render() vecty.ComponentOrHTML {
 	a.Trigger.target = fmt.Sprintf("#%s", a.Content.ID)
 	a.Content.Classes = append(a.Content.Classes, "accordion-collapse")
 	if !a.parentAccordion.AlwaysOpen {
-		a.Content.Data = append(a.Content.Data, vecty.Data{"bsParent": fmt.Sprintf("#%s", a.parentAccordion.ID)})
+		data := vecty.Data{"bsParent": fmt.Sprintf("#%s", a.parentAccordion.ID)}
+		for k, v := range a.Content.Data {
+			data[k] = v
+		}
+		a.Content.Data = data
 	}
 
 	return elem.Div(

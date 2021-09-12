@@ -3,14 +3,15 @@ package docs
 import (
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
+	"github.com/hexops/vecty/event"
 
 	"github.com/mvpmvh/vecty-bootstrap/internal"
 	components "github.com/mvpmvh/vecty-bootstrap/v5"
-	"github.com/mvpmvh/vecty-bootstrap/v5/utilities"
 )
 
 type Layout struct {
 	vecty.Core
+	Router *Router
 }
 
 func (l *Layout) Render() vecty.ComponentOrHTML {
@@ -45,19 +46,22 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 									},
 									Button: &components.CollapseButton{
 										Button: components.Button{
-											Child: vecty.Text("Accordion Item #1"),
+											Child: vecty.Text("Components"),
 										},
 									},
 								},
 								Content: &components.Collapse{
 									ID: "panelsStayOpen-collapseOne",
-									Child: elem.Div(
-										vecty.Markup(
-											vecty.Class("accordion-body"),
-										),
-										vecty.Tag("strong", vecty.Text("This is the first item's accordion body.")),
-										vecty.Text("It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow."),
-									),
+									Child: &components.Button{
+										MarkupData: internal.MarkupData{
+											Classes: []string{"accordion-body"},
+											Data:    vecty.Data{"routerPath": "#alerts"},
+											EventListeners: []*vecty.EventListener{
+												event.Click(l.onRoute).PreventDefault(),
+											},
+										},
+										Child: vecty.Text("Alerts"),
+									},
 								},
 							},
 							{
@@ -72,73 +76,34 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 									},
 									Button: &components.CollapseButton{
 										Button: components.Button{
-											Child: vecty.Text("Accordion Item #2"),
+											Child: vecty.Text("Utilities"),
 										},
 									},
 								},
 								Content: &components.Collapse{
 									ID: "panelsStayOpen-collapseTwo",
-									Child: elem.Div(
-										vecty.Markup(
-											vecty.Class("accordion-body"),
-										),
-										vecty.Tag("strong", vecty.Text("This is the second item's accordion body.")),
-										vecty.Text("It is not shown by default."),
-									),
+									Child: &components.Button{
+										MarkupData: internal.MarkupData{
+											Classes: []string{"accordion-body"},
+											Data:    vecty.Data{"routerPath": "#background"},
+											EventListeners: []*vecty.EventListener{
+												event.Click(l.onRoute).PreventDefault(),
+											},
+										},
+										Child: vecty.Text("Background"),
+									},
 								},
 							},
 						},
 					},
 				),
-				elem.Section(
-					vecty.Text("Main"),
-					elem.Section(
-						&components.Alert{
-							MarkupData:           internal.MarkupData{},
-							Type:                 components.PrimaryAlert,
-							DismissButton:        &components.Button{},
-							ShouldAnimateDismiss: true,
-							Child:                vecty.Text("A simple primary alert—check it out!"),
-						},
-					),
-					elem.Section(
-						&components.Badge{
-							MarkupData: internal.MarkupData{
-								Classes: []string{utilities.BackgroundPrimary},
-							},
-							Child: vecty.Text("badge"),
-						},
-						&components.Badge{
-							Child: vecty.Text("pill"),
-							MarkupData: internal.MarkupData{
-								Classes: []string{utilities.BackgroundSecondary, utilities.BorderRadiusRoundedPill},
-							},
-						},
-					),
-					elem.Section(
-						&components.Breadcrumbs{
-							Items: []*components.BreadcrumbItem{
-								{
-									Child: elem.Anchor(
-										vecty.Markup(vecty.Href("#")),
-										vecty.Text("Home"),
-									),
-								},
-								{
-									Child: elem.Anchor(
-										vecty.Markup(vecty.Href("#")),
-										vecty.Text("Library"),
-									),
-								},
-								{
-									Child:    vecty.Text("Data"),
-									IsActive: true,
-								},
-							},
-						},
-					),
-				),
+				elem.Section(l.Router.CurrentRoute),
 			),
 		),
 	)
+}
+
+func (l *Layout) onRoute(e *vecty.Event) {
+	path := e.Target.Get("dataset").Get("routerPath").String()
+	l.Router.To(path)
 }

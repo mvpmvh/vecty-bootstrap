@@ -1,9 +1,19 @@
 package main
 
 import (
+	"net/url"
+
 	"github.com/hexops/vecty"
 
 	"github.com/mvpmvh/vecty-bootstrap/docs"
+)
+
+var (
+	AlertPage      docs.Alert
+	BadgePage      docs.Badge
+	BreadcrumbPage docs.Breadcrumb
+	ButtonPage     docs.Button
+	router         docs.Router
 )
 
 func main() {
@@ -22,5 +32,22 @@ func main() {
 		CrossOrigin: "anonymous",
 		AddToHead:   false,
 	})
-	vecty.RenderBody(&docs.Layout{})
+
+	l := &docs.Layout{Router: &router}
+
+	router.OnRoute = func(r *url.URL) {
+		switch r.Fragment {
+		case "alerts":
+			router.CurrentRoute = &AlertPage
+		case "badges":
+			router.CurrentRoute = &BadgePage
+		case "breadcrumbs":
+			router.CurrentRoute = &BreadcrumbPage
+		case "buttons":
+			router.CurrentRoute = &ButtonPage
+		}
+		vecty.Rerender(l)
+	}
+
+	vecty.RenderBody(l)
 }

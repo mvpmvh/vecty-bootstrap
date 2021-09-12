@@ -8,14 +8,6 @@ import (
 	"github.com/mvpmvh/vecty-bootstrap/docs"
 )
 
-var (
-	AlertPage      docs.Alert
-	BadgePage      docs.Badge
-	BreadcrumbPage docs.Breadcrumb
-	ButtonPage     docs.Button
-	router         docs.Router
-)
-
 func main() {
 	vecty.SetTitle("Vecty Bootstrap Documentation")
 	vecty.AddStylesheet(vecty.AddStyleSheetParams{
@@ -33,18 +25,27 @@ func main() {
 		AddToHead:   false,
 	})
 
-	l := &docs.Layout{Router: &router}
+	l := &docs.Layout{
+		Main: func() vecty.ComponentOrHTML {
+			return new(docs.Button)
+		},
+		Router: &docs.GlobalRouter,
+	}
 
-	router.OnRoute = func(r *url.URL) {
+	docs.GlobalRouter.OnRoute = func(r *url.URL) {
+		var view vecty.ComponentOrHTML
 		switch r.Fragment {
 		case "alerts":
-			router.CurrentRoute = &AlertPage
+			view = new(docs.Alert)
 		case "badges":
-			router.CurrentRoute = &BadgePage
+			view = new(docs.Badge)
 		case "breadcrumbs":
-			router.CurrentRoute = &BreadcrumbPage
+			view = new(docs.Breadcrumb)
 		case "buttons":
-			router.CurrentRoute = &ButtonPage
+			view = new(docs.Button)
+		}
+		l.Main = func() vecty.ComponentOrHTML {
+			return view
 		}
 		vecty.Rerender(l)
 	}

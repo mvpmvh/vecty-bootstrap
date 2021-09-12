@@ -13,9 +13,9 @@ type AnchorButton struct {
 func (a *AnchorButton) Render() vecty.ComponentOrHTML {
 	return elem.Anchor(
 		vecty.Markup(
-			vecty.Href("#"),
 			a.Button.markup(),
+			vecty.Href("#"),
 		),
-		a.Child,
+		a.Child(),
 	)
 }

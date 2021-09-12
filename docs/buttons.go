@@ -30,7 +30,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 							},
 						},
 						Color: components.PrimaryColor,
-						Child: vecty.Text("Primary"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Primary")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -39,7 +41,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 							},
 						},
 						Color: components.SecondaryColor,
-						Child: vecty.Text("Secondary"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Secondary")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -48,7 +52,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 							},
 						},
 						Color: components.SuccessColor,
-						Child: vecty.Text("Success"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Success")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -57,7 +63,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 							},
 						},
 						Color: components.DangerColor,
-						Child: vecty.Text("Danger"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Danger")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -66,7 +74,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 							},
 						},
 						Color: components.WarningColor,
-						Child: vecty.Text("Warning"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Warning")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -75,7 +85,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 							},
 						},
 						Color: components.InfoColor,
-						Child: vecty.Text("Info"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Info")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -84,7 +96,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 							},
 						},
 						Color: components.LightColor,
-						Child: vecty.Text("Light"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Light")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -93,7 +107,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 							},
 						},
 						Color: components.DarkColor,
-						Child: vecty.Text("Dark"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Dark")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -102,7 +118,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 							},
 						},
 						IsLink: true,
-						Child:  vecty.Text("Link"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Link")
+						},
 					},
 				},
 			},
@@ -114,7 +132,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 			&components.AnchorButton{
 				Button: components.Button{
 					Color: components.PrimaryColor,
-					Child: vecty.Text("Link"),
+					Child: func() vecty.ComponentOrHTML {
+						return vecty.Text("Link")
+					},
 				},
 			},
 		),
@@ -132,7 +152,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						},
 						Color:     components.PrimaryColor,
 						IsOutline: true,
-						Child:     vecty.Text("Primary"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Primary")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -142,7 +164,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						},
 						Color:     components.SecondaryColor,
 						IsOutline: true,
-						Child:     vecty.Text("Secondary"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Secondary")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -152,7 +176,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						},
 						Color:     components.SuccessColor,
 						IsOutline: true,
-						Child:     vecty.Text("Success"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Success")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -162,7 +188,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						},
 						Color:     components.DangerColor,
 						IsOutline: true,
-						Child:     vecty.Text("Danger"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Danger")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -172,7 +200,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						},
 						Color:     components.WarningColor,
 						IsOutline: true,
-						Child:     vecty.Text("Warning"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Warning")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -182,7 +212,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						},
 						Color:     components.InfoColor,
 						IsOutline: true,
-						Child:     vecty.Text("Info"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Info")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -192,7 +224,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						},
 						Color:     components.LightColor,
 						IsOutline: true,
-						Child:     vecty.Text("Light"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Light")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -202,7 +236,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						},
 						Color:     components.DarkColor,
 						IsOutline: true,
-						Child:     vecty.Text("Dark"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Dark")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -212,7 +248,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						},
 						IsLink:    true,
 						IsOutline: true,
-						Child:     vecty.Text("Link"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Link")
+						},
 					},
 				},
 			},
@@ -231,7 +269,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						},
 						Color: components.PrimaryColor,
 						Size:  components.LargeSize,
-						Child: vecty.Text("Large Button"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Large Button")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -241,7 +281,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						},
 						Color: components.SecondaryColor,
 						Size:  components.LargeSize,
-						Child: vecty.Text("Large Button"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Large Button")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -251,7 +293,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						},
 						Color: components.PrimaryColor,
 						Size:  components.SmallSize,
-						Child: vecty.Text("Small Button"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Small Button")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -261,7 +305,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						},
 						Color: components.SecondaryColor,
 						Size:  components.SmallSize,
-						Child: vecty.Text("Small Button"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Small Button")
+						},
 					},
 				},
 			},
@@ -281,7 +327,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Color:      components.PrimaryColor,
 						Size:       components.LargeSize,
 						IsDisabled: true,
-						Child:      vecty.Text("Primary Button"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Primary Button")
+						},
 					},
 					&components.Button{
 						MarkupData: internal.MarkupData{
@@ -292,7 +340,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 						Color:      components.SecondaryColor,
 						Size:       components.LargeSize,
 						IsDisabled: true,
-						Child:      vecty.Text("Button"),
+						Child: func() vecty.ComponentOrHTML {
+							return vecty.Text("Button")
+						},
 					},
 					&components.AnchorButton{
 						Button: components.Button{
@@ -303,7 +353,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 							},
 							Color:      components.PrimaryColor,
 							IsDisabled: true,
-							Child:      vecty.Text("Primary Link"),
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Primary Link")
+							},
 						},
 					},
 					&components.AnchorButton{
@@ -315,7 +367,9 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 							},
 							Color:      components.SecondaryColor,
 							IsDisabled: true,
-							Child:      vecty.Text("Link"),
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Link")
+							},
 						},
 					},
 				},

@@ -12,13 +12,16 @@ import (
 type Layout struct {
 	vecty.Core
 	Router *Router
+	Main   func() vecty.ComponentOrHTML
 }
 
 func (l *Layout) Render() vecty.ComponentOrHTML {
 	return elem.Body(
 		elem.Div(
 			&components.Container{
-				Child: vecty.Text("Header"),
+				Child: func() vecty.ComponentOrHTML {
+					return vecty.Text("Header")
+				},
 			},
 			elem.Div(
 				vecty.Markup(
@@ -46,7 +49,9 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 									},
 									Button: &components.CollapseButton{
 										Button: components.Button{
-											Child: vecty.Text("Components"),
+											Child: func() vecty.ComponentOrHTML {
+												return vecty.Text("Components")
+											},
 										},
 									},
 								},
@@ -60,7 +65,9 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 												event.Click(l.onRoute).PreventDefault(),
 											},
 										},
-										Child: vecty.Text("Alerts"),
+										Child: func() vecty.ComponentOrHTML {
+											return vecty.Text("Alerts")
+										},
 									},
 								},
 							},
@@ -76,7 +83,9 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 									},
 									Button: &components.CollapseButton{
 										Button: components.Button{
-											Child: vecty.Text("Utilities"),
+											Child: func() vecty.ComponentOrHTML {
+												return vecty.Text("Utilities")
+											},
 										},
 									},
 								},
@@ -90,14 +99,16 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 												event.Click(l.onRoute).PreventDefault(),
 											},
 										},
-										Child: vecty.Text("Background"),
+										Child: func() vecty.ComponentOrHTML {
+											return vecty.Text("Background")
+										},
 									},
 								},
 							},
 						},
 					},
 				),
-				elem.Section(l.Router.CurrentRoute),
+				elem.Section(l.Main()),
 			),
 		),
 	)

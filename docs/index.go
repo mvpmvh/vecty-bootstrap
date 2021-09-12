@@ -1,12 +1,6 @@
 package docs
 
-import (
-	"github.com/hexops/vecty"
-	"github.com/hexops/vecty/elem"
-
-	components "github.com/mvpmvh/vecty-bootstrap/v5"
-)
-
+/*
 type Index struct {
 	vecty.Core
 }
@@ -71,4 +65,4 @@ func (i *Index) Render() vecty.ComponentOrHTML {
 			},
 		},
 	)
-}
+}*/

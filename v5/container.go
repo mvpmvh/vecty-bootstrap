@@ -26,7 +26,7 @@ type Container struct {
 	vecty.Core
 	internal.MarkupData
 	Breakpoint ContainerBreakpoint
-	Child      vecty.ComponentOrHTML
+	Child      func() vecty.ComponentOrHTML `vecty:"slot"`
 }
 
 func (c *Container) Render() vecty.ComponentOrHTML {
@@ -35,7 +35,7 @@ func (c *Container) Render() vecty.ComponentOrHTML {
 			c.MarkupData.Markup(),
 			vecty.Class(c.class()),
 		),
-		c.Child,
+		c.Child(),
 	)
 }
 

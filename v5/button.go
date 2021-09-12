@@ -26,7 +26,7 @@ type Button struct {
 	IsDisabled bool
 	IsOutline  bool
 	IsLink     bool
-	Child      vecty.ComponentOrHTML
+	Child      func() vecty.ComponentOrHTML
 }
 
 func (b *Button) Render() vecty.ComponentOrHTML {
@@ -34,7 +34,7 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 		vecty.Markup(
 			b.markup(),
 		),
-		b.Child,
+		b.Child(),
 	)
 }
 

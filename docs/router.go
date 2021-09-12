@@ -3,14 +3,13 @@ package docs
 import (
 	"fmt"
 	"net/url"
-
-	"github.com/hexops/vecty"
 )
+
+var GlobalRouter Router
 
 // Router notifies a listen of route changes
 type Router struct {
-	OnRoute      func(*url.URL)
-	CurrentRoute vecty.ComponentOrHTML
+	OnRoute func(*url.URL)
 }
 
 // To updates the browser history with the newest URL to visit. It notifies its OnRoute listener.

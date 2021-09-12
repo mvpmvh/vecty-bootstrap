@@ -30,6 +30,7 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 						"grid-template-columns": "1fr 5fr",
 						"grid-template-areas":   "'sidebar main'",
 						"grid-gap":              "10px",
+						"padding":               "24px",
 					},
 				),
 				elem.Section(
@@ -108,7 +109,12 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 						},
 					},
 				),
-				elem.Section(l.Main()),
+				elem.Section(
+					vecty.Markup(
+						vecty.Class("p-3"),
+					),
+					l.Main(),
+				),
 			),
 		),
 	)

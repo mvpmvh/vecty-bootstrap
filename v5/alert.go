@@ -30,7 +30,7 @@ type Alert struct {
 	Type                 AlertType
 	CloseButton          *CloseButton
 	ShouldAnimateDismiss bool
-	Child                vecty.ComponentOrHTML
+	Child                func() vecty.ComponentOrHTML
 }
 
 func (a *Alert) Render() vecty.ComponentOrHTML {
@@ -44,7 +44,7 @@ func (a *Alert) Render() vecty.ComponentOrHTML {
 
 	return elem.Div(
 		vecty.Markup(a.markup()),
-		a.Child,
+		a.Child(),
 		vecty.If(a.CloseButton != nil, a.CloseButton),
 	)
 }

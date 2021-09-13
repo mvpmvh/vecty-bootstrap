@@ -33,7 +33,7 @@ type Column struct {
 	vecty.Core
 	internal.MarkupData
 	Breakpoints []ColumnBreakpointSize
-	Child       vecty.ComponentOrHTML
+	Child       func() vecty.ComponentOrHTML
 }
 
 func (c *Column) Render() vecty.ComponentOrHTML {
@@ -42,7 +42,7 @@ func (c *Column) Render() vecty.ComponentOrHTML {
 			c.MarkupData.Markup(),
 			vecty.Class(c.classes()...),
 		),
-		c.Child,
+		c.Child(),
 	)
 }
 

@@ -11,7 +11,7 @@ import (
 type Row struct {
 	vecty.Core
 	internal.MarkupData
-	Child vecty.ComponentOrHTML
+	Child func() vecty.ComponentOrHTML
 }
 
 func (r *Row) Render() vecty.ComponentOrHTML {
@@ -20,6 +20,6 @@ func (r *Row) Render() vecty.ComponentOrHTML {
 			r.MarkupData.Markup(),
 			vecty.Class("row"),
 		),
-		r.Child,
+		r.Child(),
 	)
 }

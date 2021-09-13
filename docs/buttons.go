@@ -22,106 +22,108 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 				vecty.Text("Styles"),
 			),
 			&components.Flex{
-				Children: vecty.List{
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+				Children: func() vecty.List {
+					return vecty.List{
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color: components.PrimaryColor,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Primary")
 							},
 						},
-						Color: components.PrimaryColor,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Primary")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color: components.SecondaryColor,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Secondary")
 							},
 						},
-						Color: components.SecondaryColor,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Secondary")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color: components.SuccessColor,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Success")
 							},
 						},
-						Color: components.SuccessColor,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Success")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color: components.DangerColor,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Danger")
 							},
 						},
-						Color: components.DangerColor,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Danger")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color: components.WarningColor,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Warning")
 							},
 						},
-						Color: components.WarningColor,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Warning")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color: components.InfoColor,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Info")
 							},
 						},
-						Color: components.InfoColor,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Info")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color: components.LightColor,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Light")
 							},
 						},
-						Color: components.LightColor,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Light")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color: components.DarkColor,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Dark")
 							},
 						},
-						Color: components.DarkColor,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Dark")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							IsLink: true,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Link")
 							},
 						},
-						IsLink: true,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Link")
-						},
-					},
+					}
 				},
 			},
 		),
@@ -143,115 +145,117 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 				vecty.Text("Outline Buttons"),
 			),
 			&components.Flex{
-				Children: vecty.List{
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+				Children: func() vecty.List {
+					return vecty.List{
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color:     components.PrimaryColor,
+							IsOutline: true,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Primary")
 							},
 						},
-						Color:     components.PrimaryColor,
-						IsOutline: true,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Primary")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color:     components.SecondaryColor,
+							IsOutline: true,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Secondary")
 							},
 						},
-						Color:     components.SecondaryColor,
-						IsOutline: true,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Secondary")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color:     components.SuccessColor,
+							IsOutline: true,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Success")
 							},
 						},
-						Color:     components.SuccessColor,
-						IsOutline: true,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Success")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color:     components.DangerColor,
+							IsOutline: true,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Danger")
 							},
 						},
-						Color:     components.DangerColor,
-						IsOutline: true,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Danger")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color:     components.WarningColor,
+							IsOutline: true,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Warning")
 							},
 						},
-						Color:     components.WarningColor,
-						IsOutline: true,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Warning")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color:     components.InfoColor,
+							IsOutline: true,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Info")
 							},
 						},
-						Color:     components.InfoColor,
-						IsOutline: true,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Info")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color:     components.LightColor,
+							IsOutline: true,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Light")
 							},
 						},
-						Color:     components.LightColor,
-						IsOutline: true,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Light")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color:     components.DarkColor,
+							IsOutline: true,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Dark")
 							},
 						},
-						Color:     components.DarkColor,
-						IsOutline: true,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Dark")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							IsLink:    true,
+							IsOutline: true,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Link")
 							},
 						},
-						IsLink:    true,
-						IsOutline: true,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Link")
-						},
-					},
+					}
 				},
 			},
 		),
@@ -260,55 +264,57 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 				vecty.Text("Sizes"),
 			),
 			&components.Flex{
-				Children: vecty.List{
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+				Children: func() vecty.List {
+					return vecty.List{
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color: components.PrimaryColor,
+							Size:  components.LargeSize,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Large Button")
 							},
 						},
-						Color: components.PrimaryColor,
-						Size:  components.LargeSize,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Large Button")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color: components.SecondaryColor,
+							Size:  components.LargeSize,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Large Button")
 							},
 						},
-						Color: components.SecondaryColor,
-						Size:  components.LargeSize,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Large Button")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color: components.PrimaryColor,
+							Size:  components.SmallSize,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Small Button")
 							},
 						},
-						Color: components.PrimaryColor,
-						Size:  components.SmallSize,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Small Button")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
+						&components.Button{
+							MarkupData: internal.MarkupData{
+								Styles: []vecty.Style{
+									vecty.Margin(vecty.Px(8)),
+								},
+							},
+							Color: components.SecondaryColor,
+							Size:  components.SmallSize,
+							Child: func() vecty.ComponentOrHTML {
+								return vecty.Text("Small Button")
 							},
 						},
-						Color: components.SecondaryColor,
-						Size:  components.SmallSize,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Small Button")
-						},
-					},
+					}
 				},
 			},
 		),
@@ -317,61 +323,63 @@ func (b *Button) Render() vecty.ComponentOrHTML {
 				vecty.Text("Disabled State"),
 			),
 			&components.Flex{
-				Children: vecty.List{
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
-							},
-						},
-						Color:      components.PrimaryColor,
-						Size:       components.LargeSize,
-						IsDisabled: true,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Primary Button")
-						},
-					},
-					&components.Button{
-						MarkupData: internal.MarkupData{
-							Styles: []vecty.Style{
-								vecty.Margin(vecty.Px(8)),
-							},
-						},
-						Color:      components.SecondaryColor,
-						Size:       components.LargeSize,
-						IsDisabled: true,
-						Child: func() vecty.ComponentOrHTML {
-							return vecty.Text("Button")
-						},
-					},
-					&components.AnchorButton{
-						Button: components.Button{
+				Children: func() vecty.List {
+					return vecty.List{
+						&components.Button{
 							MarkupData: internal.MarkupData{
 								Styles: []vecty.Style{
 									vecty.Margin(vecty.Px(8)),
 								},
 							},
 							Color:      components.PrimaryColor,
+							Size:       components.LargeSize,
 							IsDisabled: true,
 							Child: func() vecty.ComponentOrHTML {
-								return vecty.Text("Primary Link")
+								return vecty.Text("Primary Button")
 							},
 						},
-					},
-					&components.AnchorButton{
-						Button: components.Button{
+						&components.Button{
 							MarkupData: internal.MarkupData{
 								Styles: []vecty.Style{
 									vecty.Margin(vecty.Px(8)),
 								},
 							},
 							Color:      components.SecondaryColor,
+							Size:       components.LargeSize,
 							IsDisabled: true,
 							Child: func() vecty.ComponentOrHTML {
-								return vecty.Text("Link")
+								return vecty.Text("Button")
 							},
 						},
-					},
+						&components.AnchorButton{
+							Button: components.Button{
+								MarkupData: internal.MarkupData{
+									Styles: []vecty.Style{
+										vecty.Margin(vecty.Px(8)),
+									},
+								},
+								Color:      components.PrimaryColor,
+								IsDisabled: true,
+								Child: func() vecty.ComponentOrHTML {
+									return vecty.Text("Primary Link")
+								},
+							},
+						},
+						&components.AnchorButton{
+							Button: components.Button{
+								MarkupData: internal.MarkupData{
+									Styles: []vecty.Style{
+										vecty.Margin(vecty.Px(8)),
+									},
+								},
+								Color:      components.SecondaryColor,
+								IsDisabled: true,
+								Child: func() vecty.ComponentOrHTML {
+									return vecty.Text("Link")
+								},
+							},
+						},
+					}
 				},
 			},
 		),

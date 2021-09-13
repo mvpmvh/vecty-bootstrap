@@ -32,6 +32,14 @@ func main() {
 		Router: &docs.GlobalRouter,
 	}
 
+	// go func() {
+	// 	time.Sleep(3 * time.Second)
+	// 	l.Main = func() vecty.ComponentOrHTML {
+	// 		return new(docs.Alert)
+	// 	}
+	// 	vecty.Rerender(l)
+	// }()
+
 	docs.GlobalRouter.OnRoute = func(r *url.URL) {
 		var view vecty.ComponentOrHTML
 		switch r.Fragment {

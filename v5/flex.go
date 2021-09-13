@@ -82,7 +82,7 @@ type Flex struct {
 	internal.MarkupData
 	FlexSettings
 	FlexBreakpointSettings []FlexBreakpointSettings
-	Children               vecty.List
+	Children               func() vecty.List
 }
 
 func (f *Flex) Render() vecty.ComponentOrHTML {
@@ -91,7 +91,7 @@ func (f *Flex) Render() vecty.ComponentOrHTML {
 			f.MarkupData.Markup(),
 			vecty.Class(f.classes()...),
 		),
-		f.Children,
+		f.Children(),
 	)
 }
 

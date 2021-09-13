@@ -31,8 +31,10 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 					JustifyContent: components.JustifyContentCenter,
 				},
 				FlexBreakpointSettings: nil,
-				Children: vecty.List{
-					elem.Heading1(vecty.Text("Vecty Bootstrap")),
+				Children: func() vecty.List {
+					return vecty.List{
+						elem.Heading1(vecty.Text("Vecty Bootstrap")),
+					}
 				},
 			},
 			&components.Container{
@@ -125,6 +127,9 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 									},
 								},
 								&components.Column{
+									MarkupData: internal.MarkupData{
+										Classes: []string{"col-10"},
+									},
 									Child: func() vecty.ComponentOrHTML {
 										return elem.Section(
 											l.Main(),

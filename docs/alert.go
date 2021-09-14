@@ -25,6 +25,7 @@ func (a *Alert) Render() vecty.ComponentOrHTML {
 		a.example(),
 		a.linkColorExample(),
 		a.additionalContent(),
+		a.icon(),
 	)
 }
 
@@ -278,6 +279,68 @@ func (a *Alert) additionalContent() vecty.ComponentOrHTML {
 								vecty.Class("mb-0"),
 							),
 							vecty.Text("Whenever you need to, be sure to use margin utilities to keep things nice and tidy."),
+						),
+					)
+				},
+			},
+		),
+		elem.Section(
+			vecty.Markup(
+				vecty.UnsafeHTML(safeHTML),
+			),
+		),
+	)
+}
+
+func (a *Alert) icon() vecty.ComponentOrHTML {
+	safeHTML := `
+<pre>
+	<code class="d-block" style="font-family: monospace; background: black; color: white;">
+  &<span style="color: yellow">components</span>.<span style="color: teal">Alert</span> {
+    Type: <span style="color: yellow">components</span>.<span style="color: purple">PrimaryAlert</span><span style="color: orange">,</span>
+    Child: <span style="color: orange">func()</span> <span style="color: yellow">vecty</span>.<span style="color: teal">ComponentOrHTML</span> {
+      <span style="color: orange">return</span> <span style="color: yellow">elem</span>.<span style="color: brown">Div</span>(
+        <span style="color: yellow">vecty</span>.<span style="color: brown">Text</span>(<span style="color: green">"A simple primary alert with ")</span><span style="color: orange">,</span>
+        <span style="color: yellow">elem</span>.<span style="color: brown">Anchor</span>(
+          <span style="color: yellow">vecty</span>.<span style="color: brown">Markup</span>(
+            <span style="color: yellow">vecty</span>.<span style="color: brown">Class</span>(<span style="color: green">"alert-link"</span>)<span style="color: orange">,</span>
+            <span style="color: yellow">vecty</span>.<span style="color:brown">Href</span>(<span style="color: green">"#"</span>)<span style="color: orange">,</span>
+          )<span style="color: orange">,</span>
+          <span style="color: yellow">vecty</span>.<span style="color: brown">Text</span>(<span style="color: green">"an example link."</span>)<span style="color: orange">,</span>
+        )<span style="color: orange">,</span>
+      )
+    }<span style="color: orange">,</span>
+  }
+  </code>
+</pre>`
+
+	return elem.Section(
+		elem.Heading5(
+			vecty.Text("Icons"),
+		),
+		elem.Paragraph(
+			vecty.Text("Use the "),
+			elem.Code(vecty.Text(".alert-link ")),
+			vecty.Text("utility class to quickly provide matching colored links within any alert."),
+		),
+		elem.Section(
+			vecty.Markup(
+				vecty.Class("border", "border-1", "p-3"),
+			),
+			&components.Alert{
+				MarkupData: internal.MarkupData{
+					Classes: []string{"mb-0"},
+				},
+				Type: components.PrimaryAlert,
+				Child: func() vecty.ComponentOrHTML {
+					return elem.Div(
+						vecty.Text("A simple primary alert with "),
+						elem.Anchor(
+							vecty.Markup(
+								vecty.Class("alert-link"),
+								vecty.Href("#"),
+							),
+							vecty.Text("an example link."),
 						),
 					)
 				},

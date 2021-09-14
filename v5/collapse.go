@@ -14,7 +14,7 @@ type Collapse struct {
 	ID           string
 	IsShowing    bool
 	IsHorizontal bool
-	Child        vecty.ComponentOrHTML
+	Child        func() vecty.ComponentOrHTML
 }
 
 func (c *Collapse) Render() vecty.ComponentOrHTML {
@@ -32,6 +32,6 @@ func (c *Collapse) Render() vecty.ComponentOrHTML {
 				"collapse-horizontal": c.IsHorizontal,
 			},
 		),
-		c.Child,
+		c.Child(),
 	)
 }

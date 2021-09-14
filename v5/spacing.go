@@ -7,6 +7,7 @@ import (
 	"github.com/hexops/vecty/elem"
 
 	"github.com/mvpmvh/vecty-bootstrap/internal"
+	"github.com/mvpmvh/vecty-bootstrap/v5/utilities"
 )
 
 // SpacingType is either margin or padding
@@ -49,7 +50,7 @@ type Spacing struct {
 	SpacingType SpacingType
 	SpacingSide SpacingSide
 	SpacingSize SpacingSize
-	Breakpoint  Breakpoint
+	Breakpoint  utilities.Breakpoint
 	Child       vecty.ComponentOrHTML
 }
 

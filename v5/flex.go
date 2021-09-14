@@ -7,6 +7,7 @@ import (
 	"github.com/hexops/vecty/elem"
 
 	"github.com/mvpmvh/vecty-bootstrap/internal"
+	"github.com/mvpmvh/vecty-bootstrap/v5/utilities"
 )
 
 type FlexOrder string
@@ -62,7 +63,7 @@ const (
 )
 
 type FlexBreakpointSettings struct {
-	Breakpoint
+	utilities.Breakpoint
 	FlexSettings
 }
 
@@ -145,7 +146,7 @@ func (f *Flex) directionClass(settings FlexBreakpointSettings) string {
 	c := "flex"
 	dir := "row"
 	if settings.IsVertical {
-		dir = "col"
+		dir = "column"
 	}
 
 	c = fmt.Sprintf("%s-%s", c, dir)

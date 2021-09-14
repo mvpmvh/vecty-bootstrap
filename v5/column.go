@@ -7,6 +7,7 @@ import (
 	"github.com/hexops/vecty/elem"
 
 	"github.com/mvpmvh/vecty-bootstrap/internal"
+	"github.com/mvpmvh/vecty-bootstrap/v5/utilities"
 )
 
 // ColumnBreakpoint is a responsive breakpoint for a Column
@@ -24,7 +25,7 @@ const (
 
 // ColumnBreakpointSize configures a Column's responsive breakpoint and size settings
 type ColumnBreakpointSize struct {
-	Breakpoint
+	utilities.Breakpoint
 	SpacingSize
 }
 

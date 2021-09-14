@@ -7,6 +7,7 @@ import (
 	"github.com/hexops/vecty/elem"
 
 	"github.com/mvpmvh/vecty-bootstrap/internal"
+	"github.com/mvpmvh/vecty-bootstrap/v5/utilities"
 )
 
 type AlignSelfDirection string
@@ -35,7 +36,7 @@ type FlexItemSettings struct {
 }
 
 type FlexItemBreakpointSettings struct {
-	Breakpoint
+	utilities.Breakpoint
 	FlexItemSettings
 }
 

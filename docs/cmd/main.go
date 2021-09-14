@@ -4,6 +4,7 @@ import (
 	"net/url"
 
 	"github.com/hexops/vecty"
+	"github.com/hexops/vecty/elem"
 
 	"github.com/mvpmvh/vecty-bootstrap/docs"
 )
@@ -27,7 +28,7 @@ func main() {
 
 	l := &docs.Layout{
 		Main: func() vecty.ComponentOrHTML {
-			return new(docs.Button)
+			return elem.Div()
 		},
 		Router: &docs.GlobalRouter,
 	}

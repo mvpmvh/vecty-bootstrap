@@ -1,4 +1,4 @@
-package components
+package utilities
 
 // Breakpoint represents a responsive breakpoint (see: https://getbootstrap.com/docs/5.1/layout/breakpoints/)
 type Breakpoint string

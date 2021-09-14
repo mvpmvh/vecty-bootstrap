@@ -74,17 +74,41 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 													},
 													Content: &components.Collapse{
 														ID: "panelsStayOpen-collapseOne",
-														Child: &components.Button{
-															MarkupData: internal.MarkupData{
-																Classes: []string{"accordion-body"},
-																Data:    vecty.Data{"routerPath": "#alerts"},
-																EventListeners: []*vecty.EventListener{
-																	event.Click(l.onRoute).PreventDefault(),
+														Child: func() vecty.ComponentOrHTML {
+															return &components.Flex{
+																FlexSettings: components.FlexSettings{
+																	IsVertical: true,
+																	// AlignItems: components.AlignItemsStart,
 																},
-															},
-															Child: func() vecty.ComponentOrHTML {
-																return vecty.Text("Alerts")
-															},
+																Children: func() vecty.List {
+																	return vecty.List{
+																		&components.Button{
+																			MarkupData: internal.MarkupData{
+																				Classes: []string{"accordion-body"},
+																				Data:    vecty.Data{"routerPath": "#alerts"},
+																				EventListeners: []*vecty.EventListener{
+																					event.Click(l.onRoute).PreventDefault(),
+																				},
+																			},
+																			Child: func() vecty.ComponentOrHTML {
+																				return vecty.Text("Alerts")
+																			},
+																		},
+																		&components.Button{
+																			MarkupData: internal.MarkupData{
+																				Classes: []string{"accordion-body"},
+																				Data:    vecty.Data{"routerPath": "#buttons"},
+																				EventListeners: []*vecty.EventListener{
+																					event.Click(l.onRoute).PreventDefault(),
+																				},
+																			},
+																			Child: func() vecty.ComponentOrHTML {
+																				return vecty.Text("Buttons")
+																			},
+																		},
+																	}
+																},
+															}
 														},
 													},
 												},
@@ -108,17 +132,19 @@ func (l *Layout) Render() vecty.ComponentOrHTML {
 													},
 													Content: &components.Collapse{
 														ID: "panelsStayOpen-collapseTwo",
-														Child: &components.Button{
-															MarkupData: internal.MarkupData{
-																Classes: []string{"accordion-body"},
-																Data:    vecty.Data{"routerPath": "#background"},
-																EventListeners: []*vecty.EventListener{
-																	event.Click(l.onRoute).PreventDefault(),
+														Child: func() vecty.ComponentOrHTML {
+															return &components.Button{
+																MarkupData: internal.MarkupData{
+																	Classes: []string{"accordion-body"},
+																	Data:    vecty.Data{"routerPath": "#background"},
+																	EventListeners: []*vecty.EventListener{
+																		event.Click(l.onRoute).PreventDefault(),
+																	},
 																},
-															},
-															Child: func() vecty.ComponentOrHTML {
-																return vecty.Text("Background")
-															},
+																Child: func() vecty.ComponentOrHTML {
+																	return vecty.Text("Background")
+																},
+															}
 														},
 													},
 												},
